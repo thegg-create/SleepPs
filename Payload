@@ -1,0 +1,4 @@
+$shell = New-Object -ComObject "Shell.Application"
+$shell.MinimizeAll()
+Start-Sleep -Seconds 30
+Invoke-WindowsLock
