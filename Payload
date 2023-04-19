@@ -1,9 +1,5 @@
-# Wait for 5 minutes
-Start-Sleep -Seconds 1800
+$phrase = "Hello, world!"
+Start-Process powershell.exe -ArgumentList "-NoExit","-Command","while(1){ Write-Output '$phrase'; Start-Sleep -Seconds 0.5 }"
 
-# Open infinite CMD terminals
-while($true) {
-    Start-Process cmd.exe -WindowStyle Hidden
-}
 
 
