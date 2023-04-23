@@ -1,5 +1,21 @@
-$phrase = "Hello, world!"
-Start-Process powershell.exe -ArgumentList "-NoExit","-Command","while(1){ Write-Output '$phrase'; Start-Sleep -Seconds 0.5 }"
+# Set the number of pop-up windows to open
+$numberOfPopups = 5
 
+# Loop through each pop-up window
+for ($i = 1; $i -le $numberOfPopups; $i++) {
+    # Create a new process object for the pop-up window
+    $popupProcess = New-Object System.Diagnostics.ProcessStartInfo
+    $popupProcess.FileName = "msg.exe"
+    $popupProcess.Arguments = "* `Pop-up number $i.`"
 
+    # Start the pop-up window process
+    $popup = [System.Diagnostics.Process]::Start($popupProcess)
 
+    # Wait for the user to click on the pop-up window
+    do {
+        Start-Sleep -Milliseconds 100
+    } while (-not $popup.HasExited)
+
+    # Close the pop-up window
+    $popup.CloseMainWindow()
+}
